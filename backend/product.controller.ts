@@ -7,7 +7,7 @@ async function updateProductStock(productId: string, quantity: number) {
     product.stock -= quantity;
     await product.save();
 
-    if (product.stock < 5) { // Low stock threshold
+    if (product.stock < 5) { // Low stossck threshold
         io.emit("lowStockAlert", { productId, name: product.name, stock: product.stock });
     }
 }
